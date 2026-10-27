@@ -1,0 +1,27 @@
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.useros
+*.sln.docstates
+*.~u
+
+# TwinCAT compilation & boot files
+**/_Boot/
+**/_CompileInfo/
+**/_Libraries/
+*.compileinfo
+*.app
+*.tizip
+*.tpzip
+*.occ
+*.oce
+*.ocm
+*.crc
+*.cid
+*.autostart
+*.bak
+
+# Temporary / build files
+[Bb]in/
+[Oo]bj/

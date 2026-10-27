@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="GVL_IO" Id="{a04288d0-5ade-49cd-95fa-6d6048f3aa84}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+		// --- Digital Inputs (Term 5: EL1809) ---
+    bAirServiceUnit_PressureOK  AT %I* : BOOL;  // EL1809 Ch 1 (Pressure switch +MS-12B1)
+    bEStop_Pressed              AT %I* : BOOL;  // EL1809 Ch 2 (Emergency Stop +BP1-8S1)
+    
+    // --- Digital Outputs (Term 6: EL2809) ---
+    bAirServiceUnit_Vent        AT %Q* : BOOL;  // EL2809 Ch 1 (Vent valve +MS-12Q1)
+    bLaserEnable                AT %Q* : BOOL;  // EL2809 Ch 2 (Laser Enable Relay)
+    
+    // --- Analog Inputs (EL3102) ---
+    nAnalog_Pressure_Sensor     AT %I* : INT;   // EL3102 Ch 1 (0-10V or 4-20mA raw value)
+    
+    // --- Temperature Measurement (EL3204) ---
+    nTemp_Heater_Band           AT %I* : INT;   // EL3204 Ch 1 (PT100 temperature value)
+    
+    // --- Counter / Encoder Module (EL5101) ---
+    nEncoder_Position           AT %I* : UDINT; // EL5101 Counter Value
+    bEncoder_Latch              AT %I* : BOOL;  // EL5101 Status / Latch
+    
+    // --- CW Controller Inputs (EL1809) ---
+    bCW_Ready                   AT %I* : BOOL;  // Secondary EL1809 Ch 1
+    bCW_AckCoded                AT %I* : BOOL;  // Secondary EL1809 Ch 2
+    bCW_MarkInProgress          AT %I* : BOOL;  // Secondary EL1809 Ch 3
+    
+    // --- CW Controller Outputs (EL2809) ---
+    bCW_DWTrig                  AT %Q* : BOOL;  // Secondary EL2809 Ch 1
+
+    // --- Field Input Box 1: +MS-9K1 (EP1018-0001) ---
+    bCyl_Ejector_Ext            AT %I* : BOOL;  // EP1018 Box 1 Ch 1
+    bCyl_Ejector_Ret            AT %I* : BOOL;  // EP1018 Box 1 Ch 2 
+    bCyl_Clamp_Ext              AT %I* : BOOL;  // EP1018 Box 1 Ch 3
+    bCyl_Clamp_Ret              AT %I* : BOOL;  // EP1018 Box 1 Ch 4 
+    bCyl_Diverter_Ext           AT %I* : BOOL;  // EP1018 Box 1 Ch 5 
+    bCyl_Diverter_Ret           AT %I* : BOOL;  // EP1018 Box 1 Ch 6 
+
+    // --- Field Input Box 2: +MS-9K2 (EP1018-0001) ---
+    bCyl_Infeed_Ext             AT %I* : BOOL;  // EP1018 Box 2 Ch 1 
+    bCyl_Infeed_Ret             AT %I* : BOOL;  // EP1018 Box 2 Ch 2 
+    bCyl_Outfeed_Ext            AT %I* : BOOL;  // EP1018 Box 2 Ch 3 
+    bCyl_Outfeed_Ret            AT %I* : BOOL;  // EP1018 Box 2 Ch 4 
+
+    // --- Field Input Box 3: +MS-9K3 (EP1018-0001) ---
+    bLightBarrier_Infeed        AT %I* : BOOL;  // EP1018 Box 3 Ch 1 
+    bServo_Infeed_Locked        AT %I* : BOOL;  // EP1018 Box 3 Ch 2 
+    bServo_Infeed_AS            AT %I* : BOOL;  // EP1018 Box 3 Ch 3 
+    bServo_Infeed_GS            AT %I* : BOOL;  // EP1018 Box 3 Ch 4 
+    bLightBarrier_Outfeed       AT %I* : BOOL;  // EP1018 Box 3 Ch 5 
+    bServo_Outfeed_Locked       AT %I* : BOOL;  // EP1018 Box 3 Ch 6 
+    bServo_Outfeed_AS           AT %I* : BOOL;  // EP1018 Box 3 Ch 7 
+    bServo_Outfeed_GS           AT %I* : BOOL;  // EP1018 Box 3 Ch 8
+    
+    // --- Field Output Box 1: +MS-10K1 (EP2028-0001) ---
+    bValve_Ejector_Ext          AT %Q* : BOOL;  // EP2028 Box 1 Ch 1 
+    bValve_Ejector_Ret          AT %Q* : BOOL;  // EP2028 Box 1 Ch 2 
+    bValve_Clamp_Ext            AT %Q* : BOOL;  // EP2028 Box 1 Ch 3 
+    bValve_Clamp_Ret            AT %Q* : BOOL;  // EP2028 Box 1 Ch 4 
+    bValve_Diverter_Ext         AT %Q* : BOOL;  // EP2028 Box 1 Ch 5 
+    bValve_Diverter_Ret         AT %Q* : BOOL;  // EP2028 Box 1 Ch 6 
+
+    // --- Field Output Box 2: +MS-10K2 (EP2028-0001) ---
+    bValve_Infeed_Ext           AT %Q* : BOOL;  // EP2028 Box 2 Ch 1 
+    bValve_Infeed_Ret           AT %Q* : BOOL;  // EP2028 Box 2 Ch 2 
+    bValve_Outfeed_Ext          AT %Q* : BOOL;  // EP2028 Box 2 Ch 3 
+    bValve_Outfeed_Ret          AT %Q* : BOOL;  // EP2028 Box 2 Ch 4 
+    bValve_AirBlow_AS           AT %Q* : BOOL;  // EP2028 Box 2 Ch 5 
+    bValve_AirBlow_GS           AT %Q* : BOOL;  // EP2028 Box 2 Ch 6 
+    bValve_Bypass_AS            AT %Q* : BOOL;  // EP2028 Box 2 Ch 7 
+    bValve_Bypass_GS            AT %Q* : BOOL;  // EP2028 Box 2 Ch 8 
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

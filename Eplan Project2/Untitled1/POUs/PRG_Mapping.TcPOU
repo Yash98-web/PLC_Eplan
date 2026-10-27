@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="PRG_Mapping" Id="{42846148-5e70-4944-974e-3382a23b974a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PRG_Mapping
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+// === READ INPUTS (Hardware -> Software) ==============================
+
+// --- Main Control Cabinet & Special Modules ---
+GVL_Inputs.bAirServiceUnit_PressureOK := GVL_IO.bAirServiceUnit_PressureOK;
+GVL_Inputs.bEStop_Pressed             := GVL_IO.bEStop_Pressed;
+GVL_Inputs.nAnalog_Pressure_Sensor    := GVL_IO.nAnalog_Pressure_Sensor;
+GVL_Inputs.nTemp_Heater_Band          := GVL_IO.nTemp_Heater_Band;
+GVL_Inputs.nEncoder_Position          := GVL_IO.nEncoder_Position;
+GVL_Inputs.bEncoder_Latch             := GVL_IO.bEncoder_Latch;
+
+// --- Secondary Station / Laser System ---
+GVL_Inputs.bCW_Ready                  := GVL_IO.bCW_Ready;
+GVL_Inputs.bCW_AckCoded               := GVL_IO.bCW_AckCoded;
+GVL_Inputs.bCW_MarkInProgress         := GVL_IO.bCW_MarkInProgress;
+
+// --- Decentralized Field Box 1 ---
+GVL_Inputs.bCyl_Ejector_Ext           := GVL_IO.bCyl_Ejector_Ext;
+GVL_Inputs.bCyl_Ejector_Ret           := GVL_IO.bCyl_Ejector_Ret;
+GVL_Inputs.bCyl_Clamp_Ext             := GVL_IO.bCyl_Clamp_Ext;
+GVL_Inputs.bCyl_Clamp_Ret             := GVL_IO.bCyl_Clamp_Ret;
+GVL_Inputs.bCyl_Diverter_Ext          := GVL_IO.bCyl_Diverter_Ext;
+GVL_Inputs.bCyl_Diverter_Ret          := GVL_IO.bCyl_Diverter_Ret;
+
+// --- Decentralized Field Box 2 ---
+GVL_Inputs.bCyl_Infeed_Ext            := GVL_IO.bCyl_Infeed_Ext;
+GVL_Inputs.bCyl_Infeed_Ret            := GVL_IO.bCyl_Infeed_Ret;
+GVL_Inputs.bCyl_Outfeed_Ext           := GVL_IO.bCyl_Outfeed_Ext;
+GVL_Inputs.bCyl_Outfeed_Ret           := GVL_IO.bCyl_Outfeed_Ret;
+
+// --- Decentralized Field Box 3 ---
+GVL_Inputs.bLightBarrier_Infeed       := GVL_IO.bLightBarrier_Infeed;
+GVL_Inputs.bServo_Infeed_Locked       := GVL_IO.bServo_Infeed_Locked;
+GVL_Inputs.bServo_Infeed_AS           := GVL_IO.bServo_Infeed_AS;
+GVL_Inputs.bServo_Infeed_GS           := GVL_IO.bServo_Infeed_GS;
+GVL_Inputs.bLightBarrier_Outfeed      := GVL_IO.bLightBarrier_Outfeed;
+GVL_Inputs.bServo_Outfeed_Locked      := GVL_IO.bServo_Outfeed_Locked;
+GVL_Inputs.bServo_Outfeed_AS          := GVL_IO.bServo_Outfeed_AS;
+GVL_Inputs.bServo_Outfeed_GS          := GVL_IO.bServo_Outfeed_GS;
+
+// === WRITE OUTPUTS (Software -> Hardware) ============================
+
+// --- Main Control Cabinet & Laser System ---
+GVL_IO.bAirServiceUnit_Vent           := GVL_Outputs.bAirServiceUnit_Vent;
+GVL_IO.bLaserEnable                   := GVL_Outputs.bLaserEnable;
+GVL_IO.bCW_DWTrig                     := GVL_Outputs.bCW_DWTrig;
+
+// --- Decentralized Field Box 1 ---
+GVL_IO.bValve_Ejector_Ext             := GVL_Outputs.bValve_Ejector_Ext;
+GVL_IO.bValve_Ejector_Ret             := GVL_Outputs.bValve_Ejector_Ret;
+GVL_IO.bValve_Clamp_Ext               := GVL_Outputs.bValve_Clamp_Ext;
+GVL_IO.bValve_Clamp_Ret               := GVL_Outputs.bValve_Clamp_Ret;
+GVL_IO.bValve_Diverter_Ext            := GVL_Outputs.bValve_Diverter_Ext;
+GVL_IO.bValve_Diverter_Ret            := GVL_Outputs.bValve_Diverter_Ret;
+
+// --- Decentralized Field Box 2 ---
+GVL_IO.bValve_Infeed_Ext              := GVL_Outputs.bValve_Infeed_Ext;
+GVL_IO.bValve_Infeed_Ret              := GVL_Outputs.bValve_Infeed_Ret;
+GVL_IO.bValve_Outfeed_Ext             := GVL_Outputs.bValve_Outfeed_Ext;
+GVL_IO.bValve_Outfeed_Ret             := GVL_Outputs.bValve_Outfeed_Ret;
+GVL_IO.bValve_AirBlow_AS              := GVL_Outputs.bValve_AirBlow_AS;
+GVL_IO.bValve_AirBlow_GS              := GVL_Outputs.bValve_AirBlow_GS;
+GVL_IO.bValve_Bypass_AS               := GVL_Outputs.bValve_Bypass_AS;
+GVL_IO.bValve_Bypass_GS               := GVL_Outputs.bValve_Bypass_GS;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="GVL_Outputs" Id="{15928273-8607-4716-87d8-63e1765e2596}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+
+    // === OUTPUTS: MAIN CONTROL CABINET & LASER SYSTEM ====================
+
+    bAirServiceUnit_Vent        : BOOL;  // Main Cabinet Vent Valve
+    bLaserEnable                : BOOL;  // Main Cabinet Laser Enable Relay
+    
+    bCW_DWTrig                  : BOOL;  // Laser System Trigger
+
+    // === OUTPUTS: DECENTRALIZED FIELD BOXES (Pneumatic Valves) ===========
+
+    // Box 1
+    bValve_Ejector_Ext          : BOOL;  
+    bValve_Ejector_Ret          : BOOL;  
+    bValve_Clamp_Ext            : BOOL;  
+    bValve_Clamp_Ret            : BOOL;  
+    bValve_Diverter_Ext         : BOOL;  
+    bValve_Diverter_Ret         : BOOL;  
+
+    // Box 2
+    bValve_Infeed_Ext           : BOOL;  
+    bValve_Infeed_Ret           : BOOL;  
+    bValve_Outfeed_Ext          : BOOL;  
+    bValve_Outfeed_Ret          : BOOL;  
+    bValve_AirBlow_AS           : BOOL;  
+    bValve_AirBlow_GS           : BOOL;  
+    bValve_Bypass_AS            : BOOL;  
+    bValve_Bypass_GS            : BOOL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

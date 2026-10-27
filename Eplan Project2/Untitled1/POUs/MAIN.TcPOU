@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <POU Name="MAIN" Id="{0ea7724f-a5c0-437c-ab1a-f4a60ea9c49c}">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+END_VAR
+]]>
+    </Declaration>
+    <Implementation>
+      <ST><![CDATA[// Call I/O Mapping Program
+PRG_Mapping();
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1">
+  <GVL Name="GVL_Inputs" Id="{c611f41a-ceea-49cd-b679-cb0cdb6e4096}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+
+    // === INPUTS: MAIN CONTROL CABINET & SPECIAL MODULES ==================
+
+    bAirServiceUnit_PressureOK  : BOOL;  // Main Cabinet Pressure Switch
+    bEStop_Pressed              : BOOL;  // Main Cabinet Emergency Stop
+    
+    nAnalog_Pressure_Sensor     : INT;   // EL3102 Analog Value
+    nTemp_Heater_Band           : INT;   // EL3204 Temp Value
+    
+    nEncoder_Position           : UDINT; // EL5101 Counter Value
+    bEncoder_Latch              : BOOL;  // EL5101 Status Latch
+
+
+    // === INPUTS: SECONDARY STATION / LASER SYSTEM ========================
+
+    bCW_Ready                   : BOOL;
+    bCW_AckCoded                : BOOL;
+    bCW_MarkInProgress          : BOOL;
+
+    // === INPUTS: DECENTRALIZED FIELD BOXES (Cylinder & Sensor states) ====
+    
+    // Box 1
+    bCyl_Ejector_Ext            : BOOL;  
+    bCyl_Ejector_Ret            : BOOL;  
+    bCyl_Clamp_Ext              : BOOL;  
+    bCyl_Clamp_Ret              : BOOL;  
+    bCyl_Diverter_Ext           : BOOL;  
+    bCyl_Diverter_Ret           : BOOL;  
+
+    // Box 2
+    bCyl_Infeed_Ext             : BOOL;  
+    bCyl_Infeed_Ret             : BOOL;  
+    bCyl_Outfeed_Ext            : BOOL;  
+    bCyl_Outfeed_Ret            : BOOL;  
+
+    // Box 3
+    bLightBarrier_Infeed        : BOOL;  
+    bServo_Infeed_Locked        : BOOL;  
+    bServo_Infeed_AS            : BOOL;  
+    bServo_Infeed_GS            : BOOL;  
+    bLightBarrier_Outfeed       : BOOL;  
+    bServo_Outfeed_Locked       : BOOL;  
+    bServo_Outfeed_AS           : BOOL;  
+    bServo_Outfeed_GS           : BOOL;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
